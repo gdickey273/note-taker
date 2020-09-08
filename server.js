@@ -4,7 +4,7 @@ const fs = require("fs");
 const app = express();
 
 
-const PORT = 8000;
+var PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,6 +26,7 @@ app.post("/api/notes", function(req, res){
   let jsonData = req.body;
   jsonData["id"] = noteData.length + 1;
   noteData.push(jsonData);
+  fs.writeFileSync("./db/db.json", JSON.stringify(jsonData));
   res.json(true);
 });
 
@@ -40,11 +41,11 @@ app.delete("/api/notes/:id", function(req, res){
 
 //----------HTML ROUTES--------------
 app.get("/notes", function (req, res) {
-  res.sendFile(path.join(__dirname, "../public/notes.html"));
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 
