@@ -8,6 +8,7 @@ var PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'))
 
 var path = require("path");
 
@@ -26,7 +27,7 @@ app.post("/api/notes", function(req, res){
   let jsonData = req.body;
   jsonData["id"] = noteData.length + 1;
   noteData.push(jsonData);
-  fs.writeFileSync("./db/db.json", JSON.stringify(jsonData));
+  fs.writeFileSync("./db/db.json", JSON.stringify(noteData));
   res.json(true);
 });
 
@@ -40,12 +41,16 @@ app.delete("/api/notes/:id", function(req, res){
 
 
 //----------HTML ROUTES--------------
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
 app.get("/notes", function (req, res) {
-  res.sendFile(path.join(__dirname, "./public/notes.html"));
+  res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 
