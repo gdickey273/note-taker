@@ -1,7 +1,7 @@
 # Note Taker
   ![Github Language Count](https://img.shields.io/github/languages/count/gdickey273/note-taker)
-  ![Github Top Language](https://img.shields.io/github/languages/top/gdickey273/note-taker)
-
+  ![Github Top Language](https://img.shields.io/github/languages/top/gdickey273/note-taker)  
+  Link to deployed application: https://morning-inlet-36658.herokuapp.com/notes
   ## Description 
    An application that can be used to write, save, and delete notes. This application uses an express backend to save and retrieve note data from a JSON file.
 
