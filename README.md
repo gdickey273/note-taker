@@ -21,11 +21,11 @@
 
 
   ### Usage Screenshots  
-  User answering command line prompts  
-  ![Command Line Screenshot](/images/team-profile-cli.png)
+  Application landing page 
+  ![Index page screenshot](/images/note-taker-index.png)
 
-  A Generated HTML Profile  
-  ![Generated HTML Profile Screenshot](/images/team-profile.png)
+  The main page of the application  
+  ![Main Page Screenshot](/images/note-taker-notes.png)
 
   
 
